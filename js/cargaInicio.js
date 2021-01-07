@@ -1,6 +1,6 @@
-$('#fila1').hide();
+$('.documento').hide();
 $('#carga').hide(); 
-$('.documento').hide(); 
+ 
 
 carga();
 setTimeout(function(){
