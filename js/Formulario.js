@@ -6,7 +6,7 @@ function Formulario(idFormulario){
         
        let patronTexto = /^[A-Za-z]{2,15}$/;
        let patronPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
-       let patronMatricula = /^[0-9]{4}[A-Z]{3}$/;
+       let patronMatricula = /^[0-9]{4}[A-Za-z]{3}$/;
        let patronNum = /^[0-9]{1,15}$/;
         let patronAlfaNum = /^[0-9]{1,15}[A-Za-z]{1,15}$/;
         let error = false;
@@ -102,6 +102,7 @@ function Formulario(idFormulario){
         this.inputs.forEach(element=>{
             $(`#${element.id}`).keyup(function(){
                 Animaciones.inputBlanco(element.id);
+                
             });
     });
 
