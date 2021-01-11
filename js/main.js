@@ -36,6 +36,7 @@ $('#btnEntrada').click(function(){
                         $.post('../php/introducirCoche.php',{matricula,marca, modelo,color},function(respuesta){
                             console.log(respuesta);
                                 actualizarGarage();
+                                $('#matriculaEntrada').val("");
                                 $('#salida-correcto').show();
                      setTimeout(function(){
                             $('#salida-correcto').hide(); 
@@ -76,6 +77,15 @@ $('#btnEntrada').click(function(){
         
         
     });
+    function contador(){
+        $.ajax({
+            url: "../php/contador",
+            type: "GET",
+            success : function(resultado){
+                $('#contador').html(resultado);
+            }
+        })
+    }
 
     function actualizarGarage(){
 
@@ -87,6 +97,7 @@ $('#btnEntrada').click(function(){
                 let plantilla= '';
                 
                 coches.forEach(coche => {
+                    contador();
                 plantilla += `<tr matricula = "${coche.matricula}">
                     <td>${coche.matricula} </td>
                     <td>${coche.modelo} </td>
