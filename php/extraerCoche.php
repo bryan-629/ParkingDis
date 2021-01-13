@@ -1,5 +1,5 @@
 <?php
-
+/*Extrae algunos datos del cliente para introducirlos en el listado */
 include('conexion.php');
 $matricula = $_POST['matricula'];
 $query = "SELECT matricula, color, modelo, marca from clientes where matricula = '$matricula'";

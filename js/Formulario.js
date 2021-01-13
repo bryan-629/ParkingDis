@@ -4,11 +4,12 @@ function Formulario(idFormulario){
 
     this.comprobar = function(){
         
-       let patronTexto = /^[A-Za-z]{2,15}$/;
+       let patronTexto = /^[A-Za-z]{1,15}\s?[A-Za-z]{1,15}$/;
        let patronPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
        let patronMatricula = /^[0-9]{4}[A-Za-z]{3}$/;
-       let patronNum = /^[0-9]{1,15}$/;
-        let patronAlfaNum = /^[0-9]{1,15}[A-Za-z]{1,15}$/;
+       let patronNum = /^\s?[0-9]{1,15}$/;
+        let patronAlfaNum1 = /^[0-9]{1,15}\s?[A-Za-z]{0,15}$/;
+        let patronEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
         let error = false;
         this.inputs.forEach(element =>{
             
@@ -63,7 +64,7 @@ function Formulario(idFormulario){
                     };
                 break;
                 case "modelo":
-                    if(patronTexto.test(element.value) || patronNum.test(element.value || patronAlfaNum.test(element.value))){
+                    if(patronTexto.test(element.value) || patronNum.test(element.value || patronAlfaNum1.test(element.value))){
 
                     }else{
                         Animaciones.inputInvalido(element.id);
@@ -80,6 +81,15 @@ function Formulario(idFormulario){
                 break;
                 case "color":
                     if(patronTexto.test(element.value)){
+
+                    }else{
+                        Animaciones.inputInvalido(element.id);
+                        error=true;
+                    };
+                    
+                break;
+                    case "email":
+                    if(patronEmail.test(element.value)){
 
                     }else{
                         Animaciones.inputInvalido(element.id);
@@ -107,6 +117,12 @@ function Formulario(idFormulario){
     });
 
     }
+
+    this.limpiar =function(){
+        this.inputs.forEach(element=>{
+               element.value = "";
+    });
+    };
 
 
 

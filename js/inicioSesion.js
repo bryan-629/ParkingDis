@@ -19,6 +19,7 @@ $(function(){
                 success : function(respuesta){
                      console.log(respuesta);
                      if(respuesta == 1){
+
                          sessionStorage.setItem("nombre", user);
                          sessionStorage.setItem("resultado", 1);
                          location.href= "html/entrada.html";

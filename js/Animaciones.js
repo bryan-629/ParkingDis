@@ -10,6 +10,12 @@ const Animaciones= {
     inputBlanco : function(inputBlanco){
         $(`#${inputBlanco}`).removeClass('is-invalid');
         $(`#${inputBlanco}`).removeClass('is-invalid');
+    },
+    mostrarAlertaRoja: function(idInput){
+        $(`#${idInput}`).show();
+    },
+    ocultarAlertaRoja : function(idInput){
+        $(`#${idInput}`).hide();
     }
 
     

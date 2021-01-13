@@ -1,4 +1,5 @@
 <?php
+/*Introduce el coche dentro del parking */
 include('conexion.php');
 $matricula = $_POST['matricula'];
 $marca = $_POST['marca'];
